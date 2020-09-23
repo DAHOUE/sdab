@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sdab/widgets/pageConnexion.dart';
 import 'package:sdab/widgets/textAvecStyle.dart';*/
 import 'package:sdab_application/data/Users.dart';
+import 'package:sdab_application/models/statut.dart';
 import 'package:sdab_application/widgets/pageConnexion.dart';
 import 'package:sdab_application/widgets/textAvecStyle.dart';
 import 'package:sdab_application/data/dataManager.dart' as global;
@@ -14,6 +15,7 @@ class PageInscription extends StatefulWidget {
 
 
   final String title;
+
 
   @override
   _PageInscription createState() => _PageInscription();
@@ -32,8 +34,17 @@ class _PageInscription extends State<PageInscription> {
   final pswConfirmController = TextEditingController();
   final telephoneController = TextEditingController();
    Utilisateur utilisateurCourant;
+   Statut selectedUser;
 
-  ///
+  List<Statut> users = <Statut>[
+    const Statut('Producteur',Icon(Icons.android,color: Color.fromRGBO(23, 83, 8, 1),)),
+    const Statut('Transformateur',Icon(Icons.flag,color: Color.fromRGBO(23, 83, 8, 1),)),
+    const Statut('Transporteur',Icon(Icons.format_indent_decrease,color: Color.fromRGBO(23, 83, 8, 1),)),
+    const Statut('Commerçant',Icon(Icons.mobile_screen_share,color: Color.fromRGBO(23, 83, 8, 1),)),
+    const Statut('Fournisseur d\'intrants', Icon(Icons.compass_calibration,color: Color.fromRGBO(23, 83, 8, 1),)),
+  ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +87,7 @@ class _PageInscription extends State<PageInscription> {
                           key: _formKey,
                           autovalidate: _autovalidate,
                           child: new Column(
-                            children: [
+                            children: <Widget>[
                               new TextFormField(
                                 controller: nomController,
                                 keyboardType: TextInputType.text,
@@ -119,6 +130,26 @@ class _PageInscription extends State<PageInscription> {
                               ),
                               SizedBox(height: 10.0,),
                               new TextFormField(
+                                //controller: prenomController,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsetsDirectional.only(start: 5.0),
+                                    child: new Image.asset('assets/Icones/icons8_home_100px.png', color: Color.fromRGBO(23, 83, 8, 1),),
+                                  ),
+                                  hintText: 'Adresse',
+                                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
+                                ),
+                                validator: (valeur){
+                                  if(valeur.isEmpty){
+                                    return 'Entrer votre adresse';
+                                  }else
+                                    return null;
+                                },
+                              ),
+                              SizedBox(height: 10.0,),
+                              new TextFormField(
                                 controller:telephoneController ,
                                 maxLength: 8,
                                 keyboardType: TextInputType.number,
@@ -135,7 +166,7 @@ class _PageInscription extends State<PageInscription> {
                                 // ignore: missing_return
                                 validator: (valeur){
                                   if(valeur.isEmpty){
-                                    print('Entrez votre téléphone');
+                                    print('Entrez votre numéro de téléphone');
                                   }
                                   else if(valeur.length<8)
                                   {
@@ -172,6 +203,7 @@ class _PageInscription extends State<PageInscription> {
                               ),
                               SizedBox(height: 10.0,),
                               new TextFormField(
+
                                 controller: pswConfirmController,
                                 keyboardType: TextInputType.text,
                                 textInputAction: TextInputAction.done,
@@ -204,7 +236,34 @@ class _PageInscription extends State<PageInscription> {
 
                                 },
                               ),
-                              SizedBox(height: 45.0,),
+                              SizedBox(height: 15.0,),
+                              new Container(
+                                child: DropdownButton<Statut>(
+                                  hint:  TextAvecStyle("Sélectionnez votre statut", color: Color.fromRGBO(23, 83, 8, 1), fontSize: 20.0,),
+                                  value: selectedUser,
+                                  onChanged: (Statut Value) {
+                                    setState(() {
+                                      selectedUser = Value;
+                                    });
+                                  },
+                                  items: users.map((Statut user) {
+                                    return  DropdownMenuItem<Statut>(
+                                      value: user,
+                                      child: Row(
+                                        children: <Widget>[
+                                          user.icon,
+                                          SizedBox(width: 10,),
+                                          Text(
+                                            user.name,
+                                            style:  TextStyle(color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                              SizedBox(height: 15.0,),
                               new Material(
                                   elevation: 5.0,
                                   borderRadius: BorderRadius.circular(30.0),
@@ -240,7 +299,7 @@ class _PageInscription extends State<PageInscription> {
 
 
 
-                    ]),
+                    ],),
               ),)
         )
     );

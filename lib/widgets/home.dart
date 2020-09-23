@@ -6,6 +6,7 @@ import 'package:sdab/widgets/textAvecStyle.dart';
 import 'package:sdab/models/menu.dart';
 import 'package:sdab/widgets/parser.dart';*/
 import 'package:sdab_application/models/menu.dart';
+import 'package:sdab_application/widgets/champ.dart';
 import 'package:sdab_application/widgets/pageConnexion.dart';
 import 'package:sdab_application/widgets/parser.dart';
 import 'package:sdab_application/widgets/textAvecStyle.dart';
@@ -27,14 +28,14 @@ class _HomeState extends State<Home>{
     new Menu('Marché', 'assets/Icones/icons8_shopping_cart_100px.png'),
     new Menu('Paiement', 'assets/Icones/icons8_Weak_Financial_Growth_100px.png'),
     new Menu('Informations', 'assets/Icones/icons8_statistics_100px.png'),
-    new Menu('Conseils agricols', 'assets/Icones/icons8_pineapple_60px.png'),
+    new Menu('Fiche Technique', 'assets/Icones/icons8_pineapple_60px.png'),
     new Menu('Opportunités', 'assets/Icones/icons8_Bad_Idea_100px.png'),
     new Menu('Forum', 'assets/Icones/icons8_comment_discussion_100px.png'),
     new Menu('FAQ', 'assets/Icones/icons8_faq_100px.png'),
     new Menu('Nous contacter', 'assets/Icones/icons8_worldwide_location_100px_2.png'),
     new Menu('Quitter', 'assets/Icones/icons8_close_window_100px.png'),
   ];
-  String elementMenuChoisi;
+  String elementMenuChoisi = "Fiche Technique";
   bool booleanColor = true;
   RssFeed rssFeed;
 
@@ -55,7 +56,7 @@ class _HomeState extends State<Home>{
      child: new Scaffold(
        appBar: AppBar(
 
-         title: Text('SDAB APPLICATION'),
+         title: Text('SDAB'),
          centerTitle: true,
          backgroundColor: Color.fromRGBO(23, 83, 8, 1),
        ),
@@ -76,13 +77,18 @@ class _HomeState extends State<Home>{
                   );
               } else {
                   return new ListTile(
+
                     title: new Text(elementsMenu[i].nom, textScaleFactor: 1.5, style: new TextStyle(color: Colors.white),),
                     leading: new Image.asset(elementsMenu[i].iconePATH),
                     onTap: (){
-                      setState(() {
-                        elementMenuChoisi = elementsMenu[i].nom;
-                        Navigator.pop(context);
-                      });
+                      elementMenuChoisi = elementsMenu[i].nom;
+                        if(elementMenuChoisi.contains("Fiche Technique") ){
+                          Navigator.push(context, new MaterialPageRoute(builder: (BuildContext buildContext){
+                            return new Champ();
+                          }));
+                        } else{
+                          Navigator.pop(context);
+                        }
                     },
                   );
                   }
@@ -96,7 +102,7 @@ class _HomeState extends State<Home>{
           child: new FloatingActionButton.extended(
             elevation: 8.0,
 
-            label: TextAvecStyle((booleanColor) ? 'Carte Map' : 'Actualité', color: (booleanColor) ? setColorText() : setColor(), fontWeight: FontWeight.bold,),
+            label: TextAvecStyle((booleanColor) ? 'Disponibilité d\'ananas' : 'Actualité', color: (booleanColor) ? setColorText() : setColor(), fontWeight: FontWeight.bold,),
             onPressed: (){
                 setState(() {
                   booleanColor = !booleanColor;

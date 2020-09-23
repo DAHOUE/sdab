@@ -91,7 +91,7 @@ class _MiseAJourMotDePasse extends State<MiseAJourMotDePasse>{
                                   child: MaterialButton(
                                     minWidth: MediaQuery.of(context).size.width,
                                     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                                    onPressed: versPageDeCodeVerification,
+                                    //onPressed: versPageDeCodeVerification,
                                     child: Text("Mettre à jour",
                                       textAlign: TextAlign.center,
                                       style: style.copyWith(

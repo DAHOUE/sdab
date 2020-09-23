@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:sdab/widgets/textAvecStyle.dart';
 import 'package:sdab_application/widgets/page_details.dart';
 import 'package:sdab_application/widgets/textAvecStyle.dart';
 import 'package:webfeed/webfeed.dart';
-
 
 import 'date_convertisseur.dart';
 class Liste extends StatefulWidget{

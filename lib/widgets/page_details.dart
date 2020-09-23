@@ -19,13 +19,17 @@ class PageDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title:  new TextAvecStyle('Détails de l\'aticle', color: Colors.white, fontSize: 25.0,),
+        title: Text('Détails sur l\'actualité'),
+        centerTitle: true,
+        backgroundColor: Color.fromRGBO(23, 83, 8, 1),
       ),
-      body: new Center(
+      body: new SingleChildScrollView(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+            SizedBox(height: 60.0,),
             new TextAvecStyle(rssItem.title, fontSize: 30.0,),
+            SizedBox(height: 30.0,),
             new Card(
               elevation: 10.0,
               child: new Container(

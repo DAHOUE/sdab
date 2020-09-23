@@ -72,6 +72,8 @@ flutter:
     - assets/Icones/icons8_sign_in_form_password_filled_100px.png
     - assets/Icones/icons8_user_filled_100px.png
     - assets/Icones/icons8_forgot_password_filled_100px.png
+    - assets/Icones/icons8_test_filled_100px.png
+    - assets/Icones/icons8_home_100px.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
