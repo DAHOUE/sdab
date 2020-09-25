@@ -41,7 +41,7 @@ class _PageInscription extends State<PageInscription> {
     const Statut('Transformateur',Icon(Icons.flag,color: Color.fromRGBO(23, 83, 8, 1),)),
     const Statut('Transporteur',Icon(Icons.format_indent_decrease,color: Color.fromRGBO(23, 83, 8, 1),)),
     const Statut('Commerçant',Icon(Icons.mobile_screen_share,color: Color.fromRGBO(23, 83, 8, 1),)),
-    const Statut('Fournisseur d\'intrants', Icon(Icons.compass_calibration,color: Color.fromRGBO(23, 83, 8, 1),)),
+    const Statut('Fournisseur d\'intrants', Icon(Icons.view_compact,color: Color.fromRGBO(23, 83, 8, 1),)),
   ];
 
 

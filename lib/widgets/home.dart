@@ -83,7 +83,7 @@ class _HomeState extends State<Home>{
                     onTap: (){
                       elementMenuChoisi = elementsMenu[i].nom;
                         if(elementMenuChoisi.contains("Fiche Technique") ){
-                          Navigator.push(context, new MaterialPageRoute(builder: (BuildContext buildContext){
+                          Navigator.pushReplacement(context, new MaterialPageRoute(builder: (BuildContext buildContext){
                             return new Champ();
                           }));
                         } else{

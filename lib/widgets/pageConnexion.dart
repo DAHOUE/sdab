@@ -154,7 +154,7 @@ class _PageConnexion extends State<PageConnexion> {
                                   child: new Text('Mot de passe oublié',
                                     textScaleFactor: 1.0,
                                     style: new TextStyle(color:
-                                    Colors.blue),)),
+                                    Color.fromRGBO(23, 83, 8, 1)),)),
                             ],
                           ),
                           SizedBox(height: 45.0,),
@@ -183,7 +183,7 @@ class _PageConnexion extends State<PageConnexion> {
                                   child: new Text('S\'inscrire',
                                     textScaleFactor: 1.0,
                                     style: new TextStyle(color:
-                                    Colors.blue),))
+                                    Color.fromRGBO(23, 83, 8, 1)),))
                             ],
                           )
                         ],

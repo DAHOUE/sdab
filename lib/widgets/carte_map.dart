@@ -20,7 +20,9 @@ class _CarteState extends State<Carte> {
 
   Completer<GoogleMapController> _controller = Completer();
 
-  static const LatLng _center = const LatLng(6.3703, 2.3912);
+  //static const LatLng _center = const LatLng(6.3703, 2.3912);
+  static const LatLng _center = const LatLng(9.3220475, 2.313137999999981);
+
 
   final Set<Marker> _markers = {};
 
@@ -188,7 +190,7 @@ class _CarteState extends State<Carte> {
               onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
                 target: _center,
-                zoom: 11.0,
+                zoom: 7.0,
               ),
               mapType: _currentMapType,
               markers: _markers,

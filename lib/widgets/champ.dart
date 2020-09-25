@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sdab_application/widgets/fiche_technique.dart';
 import 'package:sdab_application/widgets/textAvecStyle.dart';
+import 'package:sdab_application/data/dataManager.dart' as global;
 
 class Champ extends StatefulWidget{
   @override
@@ -13,8 +14,31 @@ class _ChampState extends State<Champ>  {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   final GlobalKey <FormState> _formKey = GlobalKey<FormState>();
   bool _autovalidate=false;
-  final phoneController = TextEditingController();
-  final pswdController = TextEditingController();
+  final villeController = TextEditingController();
+  final quartierController = TextEditingController();
+  final superficieController = TextEditingController();
+
+
+  void _validerChamp()
+  {
+    if(this._formKey.currentState.validate())
+    {
+      global.ville =villeController.text;
+      global.quartier=quartierController.text;
+      global.superficie=double.parse(superficieController.text);
+
+      Navigator.push(
+          context, new MaterialPageRoute(builder: (BuildContext context) {
+        return new FicheTechnique();
+      }));
+    }
+    else
+    {
+      setState(() {
+        this._autovalidate = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +62,8 @@ class _ChampState extends State<Champ>  {
                     child: new Column(
                       children: [
                         new TextFormField(
-                          controller: phoneController,
-                          keyboardType: TextInputType.number,
+                          controller: villeController,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                             prefixIcon: Padding(
@@ -58,9 +82,8 @@ class _ChampState extends State<Champ>  {
                         ),
                         SizedBox(height: 10.0,),
                         new TextFormField(
-                          controller: pswdController,
+                          controller: quartierController,
                           keyboardType: TextInputType.text,
-                          obscureText: true,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(20.0, 15.0,20.0, 15.0),
                             prefixIcon: Padding(
@@ -74,7 +97,7 @@ class _ChampState extends State<Champ>  {
                           // ignore: missing_return
                           validator: (valeur){
                             if(valeur.isEmpty){
-                              print('Entrer votre mot de passe');
+                              print('Entrer le quartier de votre champ');
                             }else
                             {
                               return null;
@@ -84,9 +107,8 @@ class _ChampState extends State<Champ>  {
                         ),
                         SizedBox(height: 10.0,),
                         new TextFormField(
-                          controller: pswdController,
-                          keyboardType: TextInputType.text,
-                          obscureText: true,
+                          controller: superficieController,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(20.0, 15.0,20.0, 15.0),
                             prefixIcon: Padding(
@@ -118,12 +140,8 @@ class _ChampState extends State<Champ>  {
                               minWidth: MediaQuery.of(context).size.width,
                               padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                               //onPressed: _validerVormulaire,
-                              onPressed: (() => {
-                                Navigator.push(context, new MaterialPageRoute(
-                                    builder: (BuildContext buildContext){
-                                      return new FicheTechnique();
-                                    })),
-                              }),
+                              onPressed: _validerChamp,
+
                               child: Text("Suivant",
                                 textAlign: TextAlign.center,
                                 style: style.copyWith(
