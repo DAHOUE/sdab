@@ -35,7 +35,7 @@ class _HomeState extends State<Home>{
     new Menu('Nous contacter', 'assets/Icones/icons8_worldwide_location_100px_2.png'),
     new Menu('Quitter', 'assets/Icones/icons8_close_window_100px.png'),
   ];
-  String elementMenuChoisi = "Fiche Technique";
+  String elementMenuChoisi;
   bool booleanColor = true;
   RssFeed rssFeed;
 
@@ -102,13 +102,13 @@ class _HomeState extends State<Home>{
           child: new FloatingActionButton.extended(
             elevation: 8.0,
 
-            label: TextAvecStyle((booleanColor) ? 'Disponibilité d\'ananas' : 'Actualité', color: (booleanColor) ? setColorText() : setColor(), fontWeight: FontWeight.bold,),
+            label: TextAvecStyle((booleanColor) ? 'Disponibilité d\'ananas' : 'Actualité', color: Color.fromRGBO(23, 83, 8, 1), fontWeight: FontWeight.bold,),
             onPressed: (){
                 setState(() {
                   booleanColor = !booleanColor;
                 });
             },
-            backgroundColor: (booleanColor) ? setColor() : setColorText(),
+            backgroundColor: Colors.white
 
           ),
         ),
@@ -296,9 +296,19 @@ class Chargement extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Center(
-      child: new TextAvecStyle('Chargement en cours ...',
+      /*child: new TextAvecStyle('Chargement en cours ...',
         fontSize: 30.0,
-        fontStyle: FontStyle.italic,),
+        fontStyle: FontStyle.italic,),*/
+        child: Container(
+          height: 50,
+          width: 50,
+          child: CircularProgressIndicator(
+            valueColor: new AlwaysStoppedAnimation(Color.fromRGBO(23, 83, 8, 1)),
+            strokeWidth: 6,
+
+            //semanticsValue: '20%',
+          ),
+        )
     );
   }
 

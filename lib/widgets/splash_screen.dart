@@ -21,7 +21,7 @@ class StartState extends State<SplashScreen>{
   }
 
   startTimer() async{
-    var duration = Duration(seconds: 4);
+    var duration = Duration(seconds: 10);
     return Timer(duration, route);
   }
 
@@ -40,12 +40,18 @@ class StartState extends State<SplashScreen>{
             Container(
               child: Image.asset("assets/logosdab4.png"),
             ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
+            //Padding(padding: EdgeInsets.only(top: 20.0)),
             TextAvecStyle("SDAB", fontSize: 20.0, color: Colors.white,),
             Padding(padding: EdgeInsets.only(top: 20.0)),
-            CircularProgressIndicator(
-              backgroundColor: Colors.white,
-            strokeWidth: 1,
+            Container(
+              height: 60,
+              width: 60,
+              child: CircularProgressIndicator(
+                //backgroundColor: Colors.white,
+                valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+              strokeWidth: 6,
+
+              ),
             )
           ],
         ),
