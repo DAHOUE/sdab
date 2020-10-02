@@ -70,7 +70,9 @@ class _ChampState extends State<Champ>  {
                               padding: const EdgeInsetsDirectional.only(start: 5.0),
                               child: new Image.asset('assets/Icones/icons8_test_filled_100px.png'),
                             ),
-                            hintText: 'Ville du champ',
+                            labelText: 'Ville du champ',
+                            labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                            hintText: 'ex: Godomey',
                             border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                           ),
                           validator: (valeur){
@@ -90,7 +92,9 @@ class _ChampState extends State<Champ>  {
                               padding: const EdgeInsetsDirectional.only(start: 5.0),
                               child: new Image.asset('assets/Icones/icons8_test_filled_100px.png'),
                             ),
-                            hintText: "Quartier du champ",
+                            labelText: 'Quartier du champ',
+                            labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                            hintText: "ex: Sédomey",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15.0)),
                           ),
@@ -115,7 +119,9 @@ class _ChampState extends State<Champ>  {
                               padding: const EdgeInsetsDirectional.only(start: 5.0),
                               child: new Image.asset('assets/Icones/icons8_test_filled_100px.png'),
                             ),
-                            hintText: "Superfice du champ en m2",
+                            labelText: 'Superfice du champ en m2',
+                            labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                            hintText: "ex: 400",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15.0)),
                           ),

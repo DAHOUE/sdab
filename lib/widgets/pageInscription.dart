@@ -98,7 +98,9 @@ class _PageInscription extends State<PageInscription> {
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_user_filled_100px.png'),
                                   ),
-                                  hintText: 'Nom',
+                                  labelText: 'Nom',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                                  hintText: 'ex: AGOUZA',
                                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                                 ),
                                 validator: (valeur){
@@ -118,7 +120,9 @@ class _PageInscription extends State<PageInscription> {
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_user_filled_100px.png'),
                                   ),
-                                  hintText: 'Prénoms',
+                                  labelText: 'Prénoms',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                                  hintText: 'ex: Kodjo',
                                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                                 ),
                                 validator: (valeur){
@@ -138,7 +142,9 @@ class _PageInscription extends State<PageInscription> {
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_home_100px.png', color: Color.fromRGBO(23, 83, 8, 1),),
                                   ),
-                                  hintText: 'Adresse',
+                                  labelText: 'Adresse',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                                  hintText: 'ex: Akassato',
                                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                                 ),
                                 validator: (valeur){
@@ -159,6 +165,8 @@ class _PageInscription extends State<PageInscription> {
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_number_pad_filled_100px_1.png'),
                                   ),
+                                  labelText: 'Téléphone',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
                                   hintText: "Téléphone",
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15.0)),
@@ -189,7 +197,9 @@ class _PageInscription extends State<PageInscription> {
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_sign_in_form_password_filled_100px.png'),
                                   ),
-                                  hintText: "Mot de passe",
+                                  labelText: 'Mot de passe',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                                  hintText: "ex: 12345678",
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15.0)),
                                 ),
@@ -214,7 +224,9 @@ class _PageInscription extends State<PageInscription> {
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_sign_in_form_password_filled_100px.png'),
                                   ),
-                                  hintText: "Confirmez mot de passe",
+                                  labelText: 'Confirmez mot de passe',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                                  hintText: "ex: 12345678",
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15.0)),
                                 ),

@@ -111,7 +111,9 @@ class _PageConnexion extends State<PageConnexion> {
                                 padding: const EdgeInsetsDirectional.only(start: 5.0),
                                 child: new Image.asset('assets/Icones/icons8_number_pad_filled_100px_1.png'),
                               ),
-                              hintText: 'Téléphone',
+                              labelText: 'Téléphone',
+                              labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                              hintText: 'ex: 94170440',
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                             ),
                             validator: (valeur){
@@ -132,7 +134,9 @@ class _PageConnexion extends State<PageConnexion> {
                                 padding: const EdgeInsetsDirectional.only(start: 5.0),
                                 child: new Image.asset('assets/Icones/icons8_sign_in_form_password_filled_100px.png'),
                               ),
-                              hintText: "Mot de passe",
+                              labelText: 'Mot de passe',
+                              labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
+                              hintText: "ex: ..........",
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15.0)),
                             ),

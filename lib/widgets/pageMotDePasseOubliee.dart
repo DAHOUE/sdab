@@ -75,6 +75,8 @@ class _PageMotDePasseOublie extends State<PageMotDePasseOubliee>{
                                     padding: const EdgeInsetsDirectional.only(start: 5.0),
                                     child: new Image.asset('assets/Icones/icons8_number_pad_filled_100px_1.png'),
                                   ),
+                                  labelText: 'Téléphone',
+                                  labelStyle: new TextStyle(color: Color.fromRGBO(23, 83, 8, 1)),
                                   hintText: 'Téléphone',
                                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                                 ),
